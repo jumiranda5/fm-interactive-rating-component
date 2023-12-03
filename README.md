@@ -28,7 +28,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Frontend Mentor - todo](https://your-solution-url.com)
-- Live Site URL: [Github Pages - todo](https://your-live-site-url.com)
+- Live Site URL: [Github Pages - todo](https://jumiranda5.github.io/fm-interactive-rating-component/)
 
 
 ## Author
