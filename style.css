@@ -26,7 +26,213 @@ svg {
   max-width: 100%;
 }
 
+button {
+    cursor: pointer;
+    border: none;
+}
 
 
-.attribution { font-size: 11px; text-align: center; }
-.attribution a { color: hsl(228, 45%, 44%); }
+/* ===========================================
+    BASE
+============================================== */
+
+:root {
+    --clr-white-hsl: 0, 0%, 100%;
+    --clr-accent-hsl: 25, 97%, 53%;
+
+    --clr-white: hsl(var(--clr-white-hsl));
+    --clr-accent: hsl(var(--clr-accent-hsl));
+    --clr-bg-card: hsl(213, 19%, 18%);
+    --clr-bg: hsl(216, 12%, 8%);
+    --clr-light-grey: hsl(217, 12%, 63%);
+    --clr-medium-grey: hsl(216, 12%, 54%);
+
+    --footer-height: 3rem;
+}
+
+.sr-only {
+    position: absolute ;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    top: auto;
+    overflow: hidden;
+}
+
+.flex-center {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--clr-bg);
+    color: var(--clr-white);
+    font-family: 'Overpass', sans-serif;
+    font-size: .9375rem;
+    line-height: 1.5;
+}
+
+main {
+    min-height: calc(100vh - var(--footer-height));
+    padding-top: var(--footer-height);
+}
+
+footer {
+    height: var(--footer-height);
+}
+
+
+/* ===========================================
+    CARD
+============================================== */
+
+.rating-card {
+    --btn-width: 2.75rem;
+
+    display: grid;
+    align-content: start;
+    gap: 1.5rem;
+    width: 90%;
+    max-width: 25.5rem;
+    padding: 1.25rem;
+    border-radius: 1.125rem;
+    background-color: var(--clr-bg-card);
+    box-shadow: .5rem .5rem 1rem rgba(0, 0, 0, .2);
+}
+
+.rating-icon-container {
+    width: var(--btn-width);
+    aspect-ratio: 1/1;
+    border-radius: 100vw;
+    background-color:  hsl(var(--clr-white-hsl), .05);
+}
+
+.rating-card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: .5rem;
+}
+
+.rating-card-text,
+.rating-fieldset label {
+    color: hsl(var(--clr-white-hsl), .6);
+}
+
+/* Rating */
+
+.rating-fieldset {
+    justify-content: space-between;
+    border: none;
+    padding: 0;
+}
+
+.rating-fieldset label {
+    cursor: pointer;
+    display: inline-block;
+    width: var(--btn-width);
+    height: var(--btn-width);
+    line-height: var(--btn-width);
+    padding-top: 1px;
+    background-color: hsl(var(--clr-white-hsl), .08);
+    border-radius: 100vw;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.rating-fieldset label:hover {
+    background-color: hsl(var(--clr-white-hsl), .4);
+    color: var(--clr-white);
+}
+
+.rating-fieldset input[type="radio"] {
+    display: none;
+}
+
+
+.rating-fieldset input[type="radio"]:checked + label {
+    background-color: var(--clr-accent);
+    color: var(--clr-white);
+}
+
+/* Submit button */
+
+.btn-submit {
+    width: 100%;
+    line-height: 2.75rem;
+    background-color: var(--clr-accent);
+    border-radius: 100vw;
+    font-weight: 700;
+    color: var(--clr-white);
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    transition: all 0.3s;
+}
+
+.btn-submit:hover,
+.btn-submit:active {
+    background-color: var(--clr-white);
+    color: var(--clr-accent);
+}
+
+/* Thank you card */
+
+.thank-you-card {
+    padding: 2.5rem 1.75rem;
+    text-align: center;
+}
+
+.thank-you-illustration {
+    margin: 0 auto;
+}
+
+.thank-you-rating {
+    width: fit-content;
+    padding: .375rem 1.5rem;
+    margin: 0 auto;
+    border-radius: 100vw;
+    color: var(--clr-accent);
+    background-color: hsl(var(--clr-white-hsl), .1);
+}
+
+@media (min-width: 37.5rem) {
+
+    .rating-card {
+        --btn-width: 3.25rem;
+
+        gap: 2rem;
+        padding: 2rem;
+        border-radius: 2rem;
+    }
+    
+    .rating-card-title {
+        font-size: 1.75rem;
+    }
+    
+    .thank-you-card {
+        padding: 3rem 2.25rem;
+    }
+
+}
+
+/* ===========================================
+    FOOTER
+============================================== */
+
+.attribution { 
+    font-size: .75rem; 
+    text-align: center; 
+}
+
+.attribution a { color: hsl(228, 70%, 67%); }
+
+
+/* ===========================================
+    HIDE CARD
+============================================== */
+
+.hide {
+    display: none;
+}
